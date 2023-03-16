@@ -1,0 +1,958 @@
+{
+	"properties": {},
+	"description": "Data Transform Usecase2",
+	"processes": {
+		"structuredfileconsumer1": {
+			"component": "com.sap.storage.consumer.v2",
+			"metadata": {
+				"label": "Structured File Consumer",
+				"x": 17,
+				"y": 12,
+				"height": 80,
+				"width": 120,
+				"extensible": false,
+				"generation": 1,
+				"config": {
+					"service": "SDL",
+					"serviceConnection": {
+						"configurationType": "Configuration Manager",
+						"connectionID": "DI_DATA_LAKE"
+					},
+					"source": {
+						"remoteObjectReference": {
+							"connection": {
+								"id": "DI_DATA_LAKE",
+								"type": "SDL"
+							},
+							"name": "Sample Data.csv",
+							"remoteObjectType": "FILE.EXCEL",
+							"qualifiedName": "/shared/SBX/POC/Sample%20Data.csv",
+							"nativeQualifiedName": "/shared/SBX/POC/Sample%20Data.csv",
+							"owner": "nobody",
+							"size": 141659,
+							"version": {
+								"dataLastModified": 1678342730000,
+								"metadataLastModified": 1678342730000,
+								"metadataVersionNumber": 1678342730000
+							}
+						},
+						"dataAccessConfiguration": {
+							"flatten": true,
+							"selectedObjectName": "Sheet1",
+							"header": true,
+							"objectList": [
+								"Sheet1"
+							]
+						},
+						"schema": {
+							"genericType": "TABLE",
+							"tableBasedRepresentation": {
+								"attributes": []
+							}
+						}
+					}
+				},
+				"outports": [
+					{
+						"name": "outTable",
+						"type": "table",
+						"vtype-ID": "$GRAPH.generated.structuredfileconsumer1_outTable"
+					}
+				]
+			}
+		},
+		"structuredfileconsumer2": {
+			"component": "com.sap.storage.consumer.v2",
+			"metadata": {
+				"label": "Structured File Consumer",
+				"x": 17,
+				"y": 132,
+				"height": 80,
+				"width": 120,
+				"extensible": false,
+				"generation": 1,
+				"config": {
+					"service": "SDL",
+					"serviceConnection": {
+						"configurationType": "Configuration Manager",
+						"connectionID": "DI_DATA_LAKE"
+					},
+					"source": {
+						"remoteObjectReference": {
+							"connection": {
+								"id": "DI_DATA_LAKE",
+								"type": "SDL"
+							},
+							"name": "Plants.csv",
+							"remoteObjectType": "FILE.CSV",
+							"qualifiedName": "/shared/SBX/POC/Plants.csv",
+							"nativeQualifiedName": "/shared/SBX/POC/Plants.csv",
+							"owner": "nobody",
+							"size": 142,
+							"version": {
+								"dataLastModified": 1678376340000,
+								"metadataLastModified": 1678376340000,
+								"metadataVersionNumber": 1678376340000
+							}
+						},
+						"dataAccessConfiguration": {
+							"rowDelimiter": "\r\n",
+							"charset": "ISO-8859-1",
+							"textDelimiter": "\"",
+							"header": true,
+							"escapeCharacter": "\"",
+							"colDelimiter": ","
+						},
+						"schema": {
+							"genericType": "TABLE",
+							"tableBasedRepresentation": {
+								"attributes": []
+							}
+						},
+						"capabilityProperties": [
+							{
+								"name": "isProfileable",
+								"value": "true"
+							}
+						]
+					},
+					"failOnStringTruncation": true
+				},
+				"outports": [
+					{
+						"name": "outTable",
+						"type": "table",
+						"vtype-ID": "$GRAPH.generated.structuredfileconsumer2_outTable"
+					}
+				]
+			}
+		},
+		"datatransform1": {
+			"component": "com.sap.datatransform",
+			"metadata": {
+				"label": "Data Transform",
+				"x": 201.99999904632568,
+				"y": 72,
+				"height": 80,
+				"width": 120,
+				"extensible": false,
+				"generation": 1,
+				"config": {
+					"definition": {
+						"nodeType": "ContainerNode",
+						"inputs": [
+							{
+								"id": "cd1ea23e-526a-4ba5-95f7-e4ed151e3b8c",
+								"nodeType": "InPort",
+								"name": "input1",
+								"attributes": [
+									{
+										"id": "2e50071a-5aee-48b7-905a-2edcf73b9f5a",
+										"name": "INDEX",
+										"datatype": "int32",
+										"nullable": false
+									},
+									{
+										"id": "e597532b-a5bf-497a-a4e1-2ddf52df9e98",
+										"name": "NAME",
+										"datatype": "string",
+										"nullable": false,
+										"length": 18
+									},
+									{
+										"id": "1fcb3b9d-f9b9-4603-9af8-8c2d365eb1bb",
+										"name": "LOCNO",
+										"datatype": "string",
+										"nullable": false,
+										"length": 6
+									},
+									{
+										"id": "d7a52cfd-811f-42d7-bdea-6f59f5686b00",
+										"name": "RESTYPE",
+										"datatype": "string",
+										"nullable": false,
+										"length": 1
+									},
+									{
+										"id": "552eb688-cbcc-4e36-ae32-b4a47a889555",
+										"name": "TZONE",
+										"datatype": "string",
+										"nullable": false,
+										"length": 5
+									},
+									{
+										"id": "0a24a76a-b1c6-46ba-a644-beee46c25db7",
+										"name": "DIMENSION",
+										"datatype": "string",
+										"nullable": false,
+										"length": 6
+									}
+								],
+								"UILayout": {
+									"x": 12,
+									"y": 12,
+									"height": 80,
+									"width": 80
+								}
+							},
+							{
+								"id": "2c8caee1-6760-4141-a496-82ba035ba074",
+								"nodeType": "InPort",
+								"name": "input2",
+								"attributes": [
+									{
+										"id": "7a7e657f-d2d1-4ddd-8873-861231529bcd",
+										"name": "Plant",
+										"datatype": "string",
+										"nullable": false,
+										"length": 4
+									},
+									{
+										"id": "8d562fbf-1acd-490d-9af9-10887c2355b5",
+										"name": "Text",
+										"datatype": "string",
+										"nullable": false,
+										"length": 26
+									}
+								],
+								"UILayout": {
+									"x": 12,
+									"y": 132,
+									"height": 80,
+									"width": 80
+								}
+							}
+						],
+						"outputs": [
+							{
+								"id": "5df655f4-3348-4511-b086-92dce0703318",
+								"nodeType": "OutPort",
+								"name": "output1",
+								"attributes": [
+									{
+										"id": "8f9a1b4e-a908-4957-80a7-0554f9f62a35",
+										"name": "INDEX",
+										"datatype": "int32",
+										"nullable": false
+									},
+									{
+										"id": "b901e6a4-8b81-4790-9cf7-24b7dd7a8266",
+										"name": "NAME",
+										"datatype": "string",
+										"nullable": false,
+										"length": 18
+									},
+									{
+										"id": "6e63d9dd-a53a-4ca4-9fdd-5b917e6488c9",
+										"name": "LOCNO",
+										"datatype": "string",
+										"nullable": false,
+										"length": 6
+									},
+									{
+										"id": "a0b2631f-a132-4c3a-bb0d-af51f25b64c4",
+										"name": "RESTYPE",
+										"datatype": "string",
+										"nullable": false,
+										"length": 1
+									},
+									{
+										"id": "254b721e-dc81-4004-9018-74e0af5f4a1e",
+										"name": "TZONE",
+										"datatype": "string",
+										"nullable": false,
+										"length": 5
+									},
+									{
+										"id": "fe87321a-0480-4242-b2d7-8b4440c541a3",
+										"name": "DIMENSION",
+										"datatype": "string",
+										"nullable": false,
+										"length": 6
+									},
+									{
+										"id": "dbed8853-abb1-4b16-9ecc-38e329f0a99c",
+										"name": "Text",
+										"datatype": "string",
+										"nullable": false,
+										"length": 26
+									}
+								],
+								"mode": "OVERWRITE",
+								"UILayout": {
+									"x": 497.9999990463257,
+									"y": 72,
+									"height": 80,
+									"width": 80
+								}
+							}
+						],
+						"nodes": [
+							{
+								"id": "02ab650b-bc22-4159-8b28-08b86278802b",
+								"type": "FilterNode",
+								"nodeType": "FilterNode",
+								"name": "Projection",
+								"inputs": [
+									{
+										"id": "e40ea0ed-6826-43da-9c35-bf978ae80a49",
+										"name": "Projection_Input1",
+										"attributes": [
+											{
+												"id": "0866c53e-e206-4db4-acb0-d3b270fc1804",
+												"name": "INDEX",
+												"datatype": "int32",
+												"nullable": false
+											},
+											{
+												"id": "cfc8a82e-abda-4869-a476-a897f84f2dd4",
+												"name": "NAME",
+												"datatype": "string",
+												"nullable": false,
+												"length": 18
+											},
+											{
+												"id": "06985886-25e2-440b-9aad-7985d4d1d43c",
+												"name": "LOCNO",
+												"datatype": "string",
+												"nullable": false,
+												"length": 6
+											},
+											{
+												"id": "b09bf365-ee1b-4320-965b-800cd34dd434",
+												"name": "RESTYPE",
+												"datatype": "string",
+												"nullable": false,
+												"length": 1
+											},
+											{
+												"id": "28234c66-cae8-4c5f-a910-e8441ab3e6c9",
+												"name": "TZONE",
+												"datatype": "string",
+												"nullable": false,
+												"length": 5
+											},
+											{
+												"id": "b3357b76-e9b8-4980-beb7-e5f7ef1c334d",
+												"name": "DIMENSION",
+												"datatype": "string",
+												"nullable": false,
+												"length": 6
+											}
+										]
+									}
+								],
+								"outputs": [
+									{
+										"id": "0a116ec2-dbaf-4311-897b-7f7fd12a221e",
+										"name": "Projection_Output1",
+										"attributes": [
+											{
+												"id": "775be374-2d2e-4476-9edf-6da49c7aba27",
+												"name": "INDEX",
+												"datatype": "int32",
+												"nullable": false,
+												"expression": "\"INDEX\""
+											},
+											{
+												"id": "5f6871f6-49a2-4c23-8aef-612e05f88ebc",
+												"name": "NAME",
+												"datatype": "string",
+												"nullable": false,
+												"length": 18,
+												"expression": "\"NAME\""
+											},
+											{
+												"id": "afae925a-fe51-4947-ad91-3b2ed2a0de3f",
+												"name": "LOCNO",
+												"datatype": "string",
+												"nullable": false,
+												"length": 6,
+												"expression": "\"LOCNO\""
+											},
+											{
+												"id": "5f84bc62-b774-48fe-971a-9a6c681cbc63",
+												"name": "RESTYPE",
+												"datatype": "string",
+												"nullable": false,
+												"length": 1,
+												"expression": "\"RESTYPE\""
+											},
+											{
+												"id": "56cff2f5-1e5e-4c16-b928-01a31794b4b0",
+												"name": "TZONE",
+												"datatype": "string",
+												"nullable": false,
+												"length": 5,
+												"expression": "\"TZONE\""
+											},
+											{
+												"id": "97b3353d-a7ef-4bb7-98a1-a7501791714f",
+												"name": "DIMENSION",
+												"datatype": "string",
+												"nullable": false,
+												"length": 6,
+												"expression": "\"DIMENSION\""
+											}
+										]
+									}
+								],
+								"UILayout": {
+									"x": 142,
+									"y": 12,
+									"height": 80,
+									"width": 120
+								}
+							},
+							{
+								"id": "75132cb7-eaea-4ef0-a246-1cd6909f0a61",
+								"type": "FilterNode",
+								"nodeType": "FilterNode",
+								"name": "Projection1",
+								"inputs": [
+									{
+										"id": "c3897684-4e91-4528-bce6-ccb9c73b0778",
+										"name": "Projection1_Input1",
+										"attributes": [
+											{
+												"id": "354ee73e-f0cf-4772-8a35-36accb0b5fd1",
+												"name": "Plant",
+												"datatype": "string",
+												"nullable": false,
+												"length": 4
+											},
+											{
+												"id": "e2b49701-32f1-4469-b2cc-370d5925e8ac",
+												"name": "Text",
+												"datatype": "string",
+												"nullable": false,
+												"length": 26
+											}
+										]
+									}
+								],
+								"outputs": [
+									{
+										"id": "0564ec45-6eb5-4fac-bc60-e628de80694c",
+										"name": "Projection1_Output1",
+										"attributes": [
+											{
+												"id": "0f80f3a4-f114-4f0f-829f-faf17db6b53d",
+												"name": "Plant",
+												"datatype": "string",
+												"nullable": false,
+												"length": 4,
+												"expression": "\"Plant\""
+											},
+											{
+												"id": "adbf48bc-d722-431f-abbc-a49217efb517",
+												"name": "Text",
+												"datatype": "string",
+												"nullable": false,
+												"length": 26,
+												"expression": "\"Text\""
+											}
+										]
+									}
+								],
+								"UILayout": {
+									"x": 142,
+									"y": 132,
+									"height": 80,
+									"width": 120
+								}
+							},
+							{
+								"id": "d56ff87b-6fe7-4a83-9dce-4a5b63eb033a",
+								"type": "JoinNode",
+								"nodeType": "JoinNode",
+								"name": "Join",
+								"inputs": [
+									{
+										"id": "3591f1fa-f2eb-4043-8302-e5a52733241e",
+										"name": "Join_Input1",
+										"attributes": [
+											{
+												"id": "c3d277b8-749c-43cf-a049-f1e0e9d97042",
+												"name": "INDEX",
+												"datatype": "int32",
+												"nullable": false
+											},
+											{
+												"id": "5da5f04b-8c01-4daf-a5ab-734a6ee9c2d7",
+												"name": "NAME",
+												"datatype": "string",
+												"nullable": false,
+												"length": 18
+											},
+											{
+												"id": "01121f1c-d289-430a-8024-0def684d5a6a",
+												"name": "LOCNO",
+												"datatype": "string",
+												"nullable": false,
+												"length": 6
+											},
+											{
+												"id": "19292751-45bf-4b5b-90b4-cf516b4a2521",
+												"name": "RESTYPE",
+												"datatype": "string",
+												"nullable": false,
+												"length": 1
+											},
+											{
+												"id": "4408f76f-d39e-412e-b50d-3a9f6fe3864d",
+												"name": "TZONE",
+												"datatype": "string",
+												"nullable": false,
+												"length": 5
+											},
+											{
+												"id": "0a6fc286-b72e-41a2-b605-63b2096aece1",
+												"name": "DIMENSION",
+												"datatype": "string",
+												"nullable": false,
+												"length": 6
+											}
+										],
+										"UILayout": {
+											"x": 12,
+											"y": 12
+										}
+									},
+									{
+										"id": "c660a2b4-48d1-4ab1-92ea-6dc3feaca9f3",
+										"name": "Join_Input2",
+										"attributes": [
+											{
+												"id": "7ecbd274-93a6-4d78-a666-f459ca06d3fc",
+												"name": "Plant",
+												"datatype": "string",
+												"nullable": false,
+												"length": 4
+											},
+											{
+												"id": "5fd66361-d83c-4711-9272-48fb4f130519",
+												"name": "Text",
+												"datatype": "string",
+												"nullable": false,
+												"length": 26
+											}
+										],
+										"UILayout": {
+											"x": 236.796875,
+											"y": 50
+										}
+									}
+								],
+								"outputs": [
+									{
+										"id": "047d5085-dabf-411b-b169-025512d5f109",
+										"name": "Join_Output1",
+										"attributes": [
+											{
+												"id": "f247cdb7-32f3-4bba-bed8-3494be990f3d",
+												"name": "INDEX",
+												"datatype": "int32",
+												"nullable": false
+											},
+											{
+												"id": "7db1277c-7d2f-4971-b1ab-077de91b0480",
+												"name": "NAME",
+												"datatype": "string",
+												"nullable": false,
+												"length": 18
+											},
+											{
+												"id": "213ed524-329e-4103-b40d-daff6e7ab3e3",
+												"name": "LOCNO",
+												"datatype": "string",
+												"nullable": false,
+												"length": 6
+											},
+											{
+												"id": "8a524ba6-7663-4f54-b4e8-7c2d290b338f",
+												"name": "RESTYPE",
+												"datatype": "string",
+												"nullable": false,
+												"length": 1
+											},
+											{
+												"id": "54af1ac4-7356-4680-b268-1bb25dbd2789",
+												"name": "TZONE",
+												"datatype": "string",
+												"nullable": false,
+												"length": 5
+											},
+											{
+												"id": "a66a92bd-e624-4639-aa0f-c7f8813143ab",
+												"name": "DIMENSION",
+												"datatype": "string",
+												"nullable": false,
+												"length": 6
+											},
+											{
+												"id": "0c4dbcde-cd4a-42ca-a67f-cdc6eab04737",
+												"name": "Text",
+												"datatype": "string",
+												"nullable": false,
+												"length": 26
+											}
+										]
+									}
+								],
+								"UILayout": {
+									"x": 327.9999990463257,
+									"y": 72,
+									"height": 80,
+									"width": 120
+								},
+								"joinDefinitions": [
+									{
+										"left": "3591f1fa-f2eb-4043-8302-e5a52733241e",
+										"right": "c660a2b4-48d1-4ab1-92ea-6dc3feaca9f3",
+										"type": "INNER",
+										"joinOptions": {
+											"leftCache": "automatic",
+											"rightCache": "automatic",
+											"leftRank": 0,
+											"rightRank": 0
+										},
+										"condition": "\"Join_Input1\".\"LOCNO\" = \"Join_Input2\".\"Plant\""
+									}
+								],
+								"tableMappings": [
+									{
+										"source": "3591f1fa-f2eb-4043-8302-e5a52733241e",
+										"target": "047d5085-dabf-411b-b169-025512d5f109",
+										"attributeMappings": [
+											{
+												"source": "c3d277b8-749c-43cf-a049-f1e0e9d97042",
+												"target": "f247cdb7-32f3-4bba-bed8-3494be990f3d"
+											},
+											{
+												"source": "5da5f04b-8c01-4daf-a5ab-734a6ee9c2d7",
+												"target": "7db1277c-7d2f-4971-b1ab-077de91b0480"
+											},
+											{
+												"source": "01121f1c-d289-430a-8024-0def684d5a6a",
+												"target": "213ed524-329e-4103-b40d-daff6e7ab3e3"
+											},
+											{
+												"source": "19292751-45bf-4b5b-90b4-cf516b4a2521",
+												"target": "8a524ba6-7663-4f54-b4e8-7c2d290b338f"
+											},
+											{
+												"source": "4408f76f-d39e-412e-b50d-3a9f6fe3864d",
+												"target": "54af1ac4-7356-4680-b268-1bb25dbd2789"
+											},
+											{
+												"source": "0a6fc286-b72e-41a2-b605-63b2096aece1",
+												"target": "a66a92bd-e624-4639-aa0f-c7f8813143ab"
+											}
+										]
+									},
+									{
+										"source": "c660a2b4-48d1-4ab1-92ea-6dc3feaca9f3",
+										"target": "047d5085-dabf-411b-b169-025512d5f109",
+										"attributeMappings": [
+											{
+												"source": "5fd66361-d83c-4711-9272-48fb4f130519",
+												"target": "0c4dbcde-cd4a-42ca-a67f-cdc6eab04737"
+											}
+										]
+									}
+								]
+							}
+						],
+						"tableMappings": [
+							{
+								"source": "cd1ea23e-526a-4ba5-95f7-e4ed151e3b8c",
+								"target": "e40ea0ed-6826-43da-9c35-bf978ae80a49",
+								"attributeMappings": [
+									{
+										"source": "2e50071a-5aee-48b7-905a-2edcf73b9f5a",
+										"target": "0866c53e-e206-4db4-acb0-d3b270fc1804"
+									},
+									{
+										"source": "e597532b-a5bf-497a-a4e1-2ddf52df9e98",
+										"target": "cfc8a82e-abda-4869-a476-a897f84f2dd4"
+									},
+									{
+										"source": "1fcb3b9d-f9b9-4603-9af8-8c2d365eb1bb",
+										"target": "06985886-25e2-440b-9aad-7985d4d1d43c"
+									},
+									{
+										"source": "d7a52cfd-811f-42d7-bdea-6f59f5686b00",
+										"target": "b09bf365-ee1b-4320-965b-800cd34dd434"
+									},
+									{
+										"source": "552eb688-cbcc-4e36-ae32-b4a47a889555",
+										"target": "28234c66-cae8-4c5f-a910-e8441ab3e6c9"
+									},
+									{
+										"source": "0a24a76a-b1c6-46ba-a644-beee46c25db7",
+										"target": "b3357b76-e9b8-4980-beb7-e5f7ef1c334d"
+									}
+								],
+								"UILayout": {
+									"points": "92,52 142,52"
+								}
+							},
+							{
+								"source": "2c8caee1-6760-4141-a496-82ba035ba074",
+								"target": "c3897684-4e91-4528-bce6-ccb9c73b0778",
+								"attributeMappings": [
+									{
+										"source": "7a7e657f-d2d1-4ddd-8873-861231529bcd",
+										"target": "354ee73e-f0cf-4772-8a35-36accb0b5fd1"
+									},
+									{
+										"source": "8d562fbf-1acd-490d-9af9-10887c2355b5",
+										"target": "e2b49701-32f1-4469-b2cc-370d5925e8ac"
+									}
+								],
+								"UILayout": {
+									"points": "92,172 142,172"
+								}
+							},
+							{
+								"source": "0a116ec2-dbaf-4311-897b-7f7fd12a221e",
+								"target": "3591f1fa-f2eb-4043-8302-e5a52733241e",
+								"attributeMappings": [
+									{
+										"source": "775be374-2d2e-4476-9edf-6da49c7aba27",
+										"target": "c3d277b8-749c-43cf-a049-f1e0e9d97042"
+									},
+									{
+										"source": "5f6871f6-49a2-4c23-8aef-612e05f88ebc",
+										"target": "5da5f04b-8c01-4daf-a5ab-734a6ee9c2d7"
+									},
+									{
+										"source": "afae925a-fe51-4947-ad91-3b2ed2a0de3f",
+										"target": "01121f1c-d289-430a-8024-0def684d5a6a"
+									},
+									{
+										"source": "5f84bc62-b774-48fe-971a-9a6c681cbc63",
+										"target": "19292751-45bf-4b5b-90b4-cf516b4a2521"
+									},
+									{
+										"source": "56cff2f5-1e5e-4c16-b928-01a31794b4b0",
+										"target": "4408f76f-d39e-412e-b50d-3a9f6fe3864d"
+									},
+									{
+										"source": "97b3353d-a7ef-4bb7-98a1-a7501791714f",
+										"target": "0a6fc286-b72e-41a2-b605-63b2096aece1"
+									}
+								],
+								"UILayout": {
+									"points": "262,52 295,52 295,103 327.9999990463257,103"
+								}
+							},
+							{
+								"source": "0564ec45-6eb5-4fac-bc60-e628de80694c",
+								"target": "c660a2b4-48d1-4ab1-92ea-6dc3feaca9f3",
+								"attributeMappings": [
+									{
+										"source": "0f80f3a4-f114-4f0f-829f-faf17db6b53d",
+										"target": "7ecbd274-93a6-4d78-a666-f459ca06d3fc"
+									},
+									{
+										"source": "adbf48bc-d722-431f-abbc-a49217efb517",
+										"target": "5fd66361-d83c-4711-9272-48fb4f130519"
+									}
+								],
+								"UILayout": {
+									"points": "262,172 295,172 295,121 327.9999990463257,121"
+								}
+							},
+							{
+								"source": "047d5085-dabf-411b-b169-025512d5f109",
+								"target": "5df655f4-3348-4511-b086-92dce0703318",
+								"attributeMappings": [
+									{
+										"source": "f247cdb7-32f3-4bba-bed8-3494be990f3d",
+										"target": "8f9a1b4e-a908-4957-80a7-0554f9f62a35"
+									},
+									{
+										"source": "7db1277c-7d2f-4971-b1ab-077de91b0480",
+										"target": "b901e6a4-8b81-4790-9cf7-24b7dd7a8266"
+									},
+									{
+										"source": "213ed524-329e-4103-b40d-daff6e7ab3e3",
+										"target": "6e63d9dd-a53a-4ca4-9fdd-5b917e6488c9"
+									},
+									{
+										"source": "8a524ba6-7663-4f54-b4e8-7c2d290b338f",
+										"target": "a0b2631f-a132-4c3a-bb0d-af51f25b64c4"
+									},
+									{
+										"source": "54af1ac4-7356-4680-b268-1bb25dbd2789",
+										"target": "254b721e-dc81-4004-9018-74e0af5f4a1e"
+									},
+									{
+										"source": "a66a92bd-e624-4639-aa0f-c7f8813143ab",
+										"target": "fe87321a-0480-4242-b2d7-8b4440c541a3"
+									},
+									{
+										"source": "0c4dbcde-cd4a-42ca-a67f-cdc6eab04737",
+										"target": "dbed8853-abb1-4b16-9ecc-38e329f0a99c"
+									}
+								],
+								"UILayout": {
+									"points": "447.9999990463257,112 497.9999990463257,112"
+								}
+							}
+						],
+						"invalidMappings": []
+					}
+				},
+				"additionalinports": [
+					{
+						"name": "input1",
+						"type": "table",
+						"isPropagated": true,
+						"vtype-ID": "$GRAPH.generated.structuredfileconsumer1_outTable"
+					},
+					{
+						"name": "input2",
+						"type": "table",
+						"isPropagated": true,
+						"vtype-ID": "$GRAPH.generated.structuredfileconsumer2_outTable"
+					}
+				],
+				"additionaloutports": [
+					{
+						"name": "output1",
+						"type": "table",
+						"vtype-ID": "$GRAPH.generated.datatransform1_output1"
+					}
+				]
+			}
+		},
+		"tabletomessageconverter1": {
+			"component": "com.sap.util.tableToMessageConverter",
+			"metadata": {
+				"label": "Table To Message Converter",
+				"x": 370.9999990463257,
+				"y": 87,
+				"height": 50,
+				"width": 50,
+				"extensible": false,
+				"generation": 1,
+				"config": {},
+				"inports": [
+					{
+						"name": "inTable",
+						"type": "table",
+						"isPropagated": true,
+						"vtype-ID": "$GRAPH.generated.datatransform1_output1"
+					}
+				]
+			}
+		},
+		"writefile1": {
+			"component": "com.sap.file.write",
+			"metadata": {
+				"label": "Write File",
+				"x": 584.9999980926514,
+				"y": 72,
+				"height": 80,
+				"width": 120,
+				"generation": 1,
+				"config": {
+					"connection": {
+						"configurationType": "Connection Management",
+						"connectionID": "DI_DATA_LAKE"
+					},
+					"pathMode": "Static (from configuration)",
+					"path": "/shared/SBX/POC/Data.csv"
+				}
+			}
+		},
+		"tofile1": {
+			"component": "com.sap.file.toFile",
+			"metadata": {
+				"label": "To File",
+				"x": 485.99999809265137,
+				"y": 87,
+				"height": 50,
+				"width": 50,
+				"generation": 1,
+				"config": {}
+			}
+		}
+	},
+	"groups": [],
+	"connections": [
+		{
+			"metadata": {
+				"points": "141,52 168.99999952316284,52 168.99999952316284,103 196.99999904632568,103"
+			},
+			"src": {
+				"port": "outTable",
+				"process": "structuredfileconsumer1"
+			},
+			"tgt": {
+				"port": "input1",
+				"process": "datatransform1"
+			}
+		},
+		{
+			"metadata": {
+				"points": "141,172 168.99999952316284,172 168.99999952316284,121 196.99999904632568,121"
+			},
+			"src": {
+				"port": "outTable",
+				"process": "structuredfileconsumer2"
+			},
+			"tgt": {
+				"port": "input2",
+				"process": "datatransform1"
+			}
+		},
+		{
+			"metadata": {
+				"points": "325.9999990463257,112 365.9999990463257,112"
+			},
+			"src": {
+				"port": "output1",
+				"process": "datatransform1"
+			},
+			"tgt": {
+				"port": "inTable",
+				"process": "tabletomessageconverter1"
+			}
+		},
+		{
+			"metadata": {
+				"points": "424.9999990463257,112 452.9999985694885,112 452.9999985694885,121 480.99999809265137,121"
+			},
+			"src": {
+				"port": "outMessage",
+				"process": "tabletomessageconverter1"
+			},
+			"tgt": {
+				"port": "in",
+				"process": "tofile1"
+			}
+		},
+		{
+			"metadata": {
+				"points": "539.9999980926514,112 579.9999980926514,112"
+			},
+			"src": {
+				"port": "file",
+				"process": "tofile1"
+			},
+			"tgt": {
+				"port": "file",
+				"process": "writefile1"
+			}
+		}
+	],
+	"inports": {},
+	"outports": {},
+	"metadata": {
+		"generation": 1
+	}
+}
