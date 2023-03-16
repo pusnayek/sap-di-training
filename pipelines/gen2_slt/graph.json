@@ -1,0 +1,899 @@
+{
+	"properties": {},
+	"description": "SLT (Gen2)",
+	"processes": {
+		"readdatafromsapsystem1": {
+			"component": "com.sap.abap.reader",
+			"metadata": {
+				"label": "Read Data From SAP System",
+				"x": 12,
+				"y": 12,
+				"height": 80,
+				"width": 120,
+				"extensible": true,
+				"generation": 2,
+				"config": {
+					"connectionID": "S51",
+					"operatorID": "com.sap.abap.reader",
+					"transferMode": "Replication",
+					"objectName": {
+						"remoteObjectReference": {
+							"connection": {
+								"id": "S51",
+								"type": "ABAP"
+							},
+							"name": "TVARVC",
+							"remoteObjectType": "TABLE",
+							"qualifiedName": "/SLT/01E/TVARVC",
+							"nativeQualifiedName": "TABLE.TVARVC",
+							"description": "Table of Variant Variables (Client-Specific)"
+						},
+						"schema": {
+							"genericType": "TABLE",
+							"tableBasedRepresentation": {
+								"attributes": [
+									{
+										"name": "MANDT",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 3,
+										"nativeDatatype": "CLNT",
+										"descriptions": [
+											{
+												"value": "Client ID of Current User",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000003"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CLNT"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "dataElement",
+												"value": "SYMANDT"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "domain",
+												"value": "MANDT"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeContentType",
+												"value": "string"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeLength",
+												"value": "3 "
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000003"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceField"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceTable"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "valueTable"
+											}
+										]
+									},
+									{
+										"name": "NAME",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 30,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "ABAP: Name of Variant Variable",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000030"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "dataElement",
+												"value": "RVARI_VNAM"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "domain",
+												"value": "SYCHAR30"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeContentType",
+												"value": "string"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeLength",
+												"value": "30 "
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000030"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceField"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceTable"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "valueTable"
+											}
+										]
+									},
+									{
+										"name": "TYPE",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 1,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "ABAP: Type of selection",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "dataElement",
+												"value": "RSSCR_KIND"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "domain",
+												"value": "SYCHAR01"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeContentType",
+												"value": "string"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeLength",
+												"value": "1 "
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceField"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceTable"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "valueTable"
+											}
+										]
+									},
+									{
+										"name": "NUMB",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 4,
+										"nativeDatatype": "NUMC",
+										"descriptions": [
+											{
+												"value": "ABAP: Current selection number",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000004"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "NUMC"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "dataElement",
+												"value": "TVARV_NUMB"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "domain",
+												"value": "SYNUM04"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeContentType",
+												"value": "string"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeLength",
+												"value": "4 "
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000004"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceField"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceTable"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "ALPHA_NUMBER"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "valueTable"
+											}
+										]
+									},
+									{
+										"name": "SIGN",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 1,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "ABAP: ID: I/E (include/exclude values)",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "dataElement",
+												"value": "TVARV_SIGN"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "domain",
+												"value": "SYCHAR01"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeContentType",
+												"value": "string"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeLength",
+												"value": "1 "
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceField"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceTable"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "valueTable"
+											}
+										]
+									},
+									{
+										"name": "OPTI",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 2,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "ABAP: Selection option (EQ/BT/CP/...)",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000002"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "dataElement",
+												"value": "TVARV_OPTI"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "domain",
+												"value": "SYCHAR02"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeContentType",
+												"value": "string"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeLength",
+												"value": "2 "
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000002"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceField"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceTable"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "valueTable"
+											}
+										]
+									},
+									{
+										"name": "LOW",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 45,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "ABAP/4: Selection value (LOW or HIGH value, external format)",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000045"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "dataElement",
+												"value": "TVARV_VAL"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "domain",
+												"value": "RSSELVALUE"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeContentType",
+												"value": "string"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeLength",
+												"value": "45 "
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000045"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceField"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceTable"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "valueTable"
+											}
+										]
+									},
+									{
+										"name": "HIGH",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 45,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "ABAP/4: Selection value (LOW or HIGH value, external format)",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000045"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "dataElement",
+												"value": "TVARV_VAL"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "domain",
+												"value": "RSSELVALUE"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeContentType",
+												"value": "string"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeLength",
+												"value": "45 "
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000045"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceField"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceTable"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "valueTable"
+											}
+										]
+									},
+									{
+										"name": "CLIE_INDEP",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 1,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "CHAR01 data element for SYST",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "dataElement",
+												"value": "SYCHAR01"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "domain",
+												"value": "SYCHAR01"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeContentType",
+												"value": "string"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "nativeLength",
+												"value": "1 "
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceField"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "referenceTable"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "valueTable"
+											}
+										]
+									},
+									{
+										"name": "IUUC_OPERATION",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 1,
+										"nativeDatatype": "CHAR",
+										"filterNotAllowed": true,
+										"descriptions": [
+											{
+												"value": "Opreation",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "0 "
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "dataElement",
+												"value": "IUUC_OPERATION"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "domain",
+												"value": "IUUC_OPERATION"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "filterNotAllowed",
+												"value": "true"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "_change_mode"
+											}
+										]
+									}
+								],
+								"uniqueKeys": [
+									{
+										"attributeReferences": [
+											"MANDT",
+											"NAME",
+											"TYPE",
+											"NUMB"
+										]
+									}
+								]
+							}
+						},
+						"descriptions": [
+							{
+								"value": "Table of Variant Variables (Client-Specific)",
+								"locale": "en",
+								"type": "SHORT"
+							}
+						],
+						"properties": [
+							{
+								"namespace": "com.sap.abap",
+								"name": "isDeltaEnabled",
+								"value": "X"
+							},
+							{
+								"namespace": "com.sap.abap",
+								"name": "isExtractionAllowed",
+								"value": "X"
+							},
+							{
+								"namespace": "com.sap.abap",
+								"name": "isExtractionEnabled",
+								"value": "X"
+							},
+							{
+								"namespace": "com.sap.abap",
+								"name": "redirectViewName"
+							},
+							{
+								"namespace": "com.sap.abap",
+								"name": "tableCategory",
+								"value": "TRANSP",
+								"valueDescription": "Transparent table"
+							}
+						],
+						"capabilityProperties": [
+							{
+								"name": "readOnly",
+								"value": "true"
+							}
+						]
+					}
+				},
+				"additionaloutports": [
+					{
+						"name": "outData",
+						"type": "table",
+						"vtype-ID": "$GRAPH.generated.readdatafromsapsystem1_outData"
+					}
+				]
+			}
+		},
+		"tabletobinary1": {
+			"component": "com.sap.table.encode",
+			"metadata": {
+				"label": "Table to Binary",
+				"x": 181,
+				"y": 12,
+				"height": 80,
+				"width": 120,
+				"extensible": false,
+				"generation": 2,
+				"ui": "dynpath",
+				"config": {
+					"csv": {
+						"colNames": "",
+						"colSep": ",",
+						"dateFormat": "",
+						"decSep": ".",
+						"escapeChar": "\"",
+						"header": true,
+						"quoteChar": "",
+						"quoting": "QUOTE_ALL",
+						"rowSep": "LF",
+						"dateFormats": []
+					}
+				},
+				"inports": [
+					{
+						"name": "table",
+						"type": "table",
+						"isPropagated": true,
+						"vtype-ID": "$GRAPH.generated.readdatafromsapsystem1_outData"
+					}
+				]
+			}
+		},
+		"binaryfileproducer1": {
+			"component": "com.sap.file.write.v2",
+			"metadata": {
+				"label": "Binary File Producer",
+				"x": 365.9999990463257,
+				"y": 12,
+				"height": 80,
+				"width": 120,
+				"generation": 2,
+				"config": {
+					"connection": {
+						"configurationType": "Connection Management",
+						"connectionID": "DI_DATA_LAKE"
+					},
+					"mode": "Append",
+					"pathMode": "Static (from configuration)",
+					"path": "/shared/SBX/POC/TVARVC",
+					"fileMode": "Partitioned file"
+				}
+			}
+		}
+	},
+	"groups": [],
+	"connections": [
+		{
+			"metadata": {
+				"points": "136,52 176,52"
+			},
+			"src": {
+				"port": "outData",
+				"process": "readdatafromsapsystem1"
+			},
+			"tgt": {
+				"port": "table",
+				"process": "tabletobinary1"
+			}
+		},
+		{
+			"metadata": {
+				"points": "305,43 332.99999952316284,43 332.99999952316284,52 360.9999990463257,52"
+			},
+			"src": {
+				"port": "binary",
+				"process": "tabletobinary1"
+			},
+			"tgt": {
+				"port": "file",
+				"process": "binaryfileproducer1"
+			}
+		}
+	],
+	"inports": {},
+	"outports": {},
+	"metadata": {
+		"generation": 2
+	}
+}
