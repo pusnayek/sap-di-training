@@ -1,0 +1,1150 @@
+{
+	"properties": {},
+	"description": "ODP (Gen2)",
+	"processes": {
+		"readdatafromsapsystem1": {
+			"component": "com.sap.abap.reader",
+			"metadata": {
+				"label": "Read Data From SAP System",
+				"x": 12,
+				"y": 12,
+				"height": 80,
+				"width": 120,
+				"extensible": true,
+				"generation": 2,
+				"config": {
+					"connectionID": "S01",
+					"operatorID": "com.sap.abap.reader",
+					"transferMode": "Replication",
+					"objectName": {
+						"remoteObjectReference": {
+							"connection": {
+								"id": "S01",
+								"type": "ABAP"
+							},
+							"name": "Z_BATCH_V2",
+							"remoteObjectType": "EXTRACTOR",
+							"qualifiedName": "/ODP_SAPI/SAP/SAP%2dR%2f3/LO/LO%2dIO/Z_BATCH_V2",
+							"nativeQualifiedName": "ODP_SAPI.Z_BATCH_V2",
+							"description": "Batch Load (RDA)",
+							"version": {
+								"metadataLastModified": 1463612156000,
+								"metadataVersionNumber": 20160518225556
+							}
+						},
+						"schema": {
+							"genericType": "TABLE",
+							"tableBasedRepresentation": {
+								"attributes": [
+									{
+										"name": "MATNR",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 18,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "Material Number",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000018"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "conversionExit",
+												"value": "MATN1"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "MATNR"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000018"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											}
+										]
+									},
+									{
+										"name": "CHARG",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 10,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "Batch Number",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000010"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "CHARG"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000010"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											}
+										]
+									},
+									{
+										"name": "WERKS",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 4,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "Plant",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000004"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "WERKS"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000004"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											}
+										]
+									},
+									{
+										"name": "LICHA",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 15,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "Vendor Batch Number",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000015"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "LICHN"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000015"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											}
+										]
+									},
+									{
+										"name": "VFDAT",
+										"templateType": "date",
+										"datatype": "DATE",
+										"nativeDatatype": "DATS",
+										"descriptions": [
+											{
+												"value": "Shelf Life Expiration or Best-Before Date",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "DATS"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "DATUM"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "DATE"
+											}
+										]
+									},
+									{
+										"name": "ERSDA",
+										"templateType": "date",
+										"datatype": "DATE",
+										"nativeDatatype": "DATS",
+										"descriptions": [
+											{
+												"value": "Created On",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "DATS"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "DATUM"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "DATE"
+											}
+										]
+									},
+									{
+										"name": "ZAEDT",
+										"templateType": "date",
+										"datatype": "DATE",
+										"nativeDatatype": "DATS",
+										"descriptions": [
+											{
+												"value": "Date of last status change",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "DATS"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "DATUM"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "DATE"
+											}
+										]
+									},
+									{
+										"name": "LWEDT",
+										"templateType": "date",
+										"datatype": "DATE",
+										"nativeDatatype": "DATS",
+										"descriptions": [
+											{
+												"value": "Date of last goods receipt",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "DATS"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "DATUM"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "DATE"
+											}
+										]
+									},
+									{
+										"name": "QNDAT",
+										"templateType": "date",
+										"datatype": "DATE",
+										"nativeDatatype": "DATS",
+										"descriptions": [
+											{
+												"value": "Next Inspection Date",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "DATS"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "DATUM"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "DATE"
+											}
+										]
+									},
+									{
+										"name": "HSDAT",
+										"templateType": "date",
+										"datatype": "DATE",
+										"nativeDatatype": "DATS",
+										"descriptions": [
+											{
+												"value": "Date of Manufacture",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "DATS"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "DATUM"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "DATE"
+											}
+										]
+									},
+									{
+										"name": "MEINS",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 3,
+										"nativeDatatype": "UNIT",
+										"semanticType": "QUANTITY_CODE",
+										"descriptions": [
+											{
+												"value": "Base Unit of Measure",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000003"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "UNIT"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "conversionExit",
+												"value": "CUNIT"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "MEINS"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000003"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "QUANTITY_CODE"
+											}
+										]
+									},
+									{
+										"name": "LVORM",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 1,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "Deletion Flag for All Data in a Batch",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "XFELD"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											}
+										]
+									},
+									{
+										"name": "LAEDA",
+										"templateType": "date",
+										"datatype": "DATE",
+										"nativeDatatype": "DATS",
+										"filterNotAllowed": true,
+										"descriptions": [
+											{
+												"value": "Date of Last Change",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "DATS"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "DATUM"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "filterNotAllowed",
+												"value": "X"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000008"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "DATE"
+											}
+										]
+									},
+									{
+										"name": "ZUSTD",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 1,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "Batch in Restricted-Use Stock",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "XFELD"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											}
+										]
+									},
+									{
+										"name": "ERNAM",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 12,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "Name of Person who Created the Object",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000012"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "USNAM"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000012"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											}
+										]
+									},
+									{
+										"name": "AENAM",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 12,
+										"nativeDatatype": "CHAR",
+										"descriptions": [
+											{
+												"value": "Name of Person Who Changed Object",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000012"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "USNAM"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000012"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "STRING"
+											}
+										]
+									},
+									{
+										"name": "CUOBJ_BM",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 18,
+										"nativeDatatype": "NUMC",
+										"descriptions": [
+											{
+												"value": "Internal object no.: Batch classification",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000018"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "NUMC"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "domain",
+												"value": "CUOBJ"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000018"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "possibleOperators",
+												"value": "="
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "ALPHA_NUMBER"
+											}
+										]
+									},
+									{
+										"name": "ODQ_CHANGEMODE",
+										"templateType": "string",
+										"datatype": "STRING",
+										"length": 1,
+										"nativeDatatype": "CHAR",
+										"filterNotAllowed": true,
+										"descriptions": [
+											{
+												"value": "Change Mode for a Data Record in the Delta",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "CHAR"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "filterNotAllowed",
+												"value": "X"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000001"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "semanticType",
+												"value": "_change_mode"
+											}
+										]
+									},
+									{
+										"name": "ODQ_ENTITYCNTR",
+										"templateType": "decimal",
+										"datatype": "DECIMAL",
+										"precision": 19,
+										"scale": 0,
+										"nativeDatatype": "DEC",
+										"filterNotAllowed": true,
+										"descriptions": [
+											{
+												"value": "Number of Data Units (Data Records for Example)",
+												"locale": "en",
+												"type": "SHORT"
+											}
+										],
+										"properties": [
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapDecimals",
+												"value": "000000"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapLength",
+												"value": "000019"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "abapType",
+												"value": "DEC"
+											},
+											{
+												"namespace": "com.sap.abap.odp",
+												"name": "filterNotAllowed",
+												"value": "X"
+											},
+											{
+												"namespace": "com.sap.abap",
+												"name": "outputLength",
+												"value": "000020"
+											}
+										]
+									}
+								],
+								"uniqueKeys": [
+									{
+										"attributeReferences": [
+											"MATNR",
+											"CHARG",
+											"WERKS"
+										]
+									}
+								]
+							}
+						},
+						"descriptions": [
+							{
+								"value": "Batch Load (RDA)",
+								"locale": "en",
+								"type": "SHORT"
+							}
+						],
+						"properties": [
+							{
+								"namespace": "com.sap.abap.cds",
+								"name": "cdcEnabled",
+								"value": "X"
+							},
+							{
+								"namespace": "com.sap.abap.odp",
+								"name": "cdcImageTypes",
+								"value": "U+"
+							},
+							{
+								"namespace": "com.sap.abap",
+								"name": "dataClass",
+								"value": "DIMENSION"
+							},
+							{
+								"namespace": "com.sap.abap.odp",
+								"name": "lastchange",
+								"value": "20160518225556"
+							}
+						],
+						"capabilityProperties": [
+							{
+								"name": "readOnly",
+								"value": "true"
+							}
+						]
+					}
+				},
+				"additionaloutports": [
+					{
+						"name": "outData",
+						"type": "table",
+						"vtype-ID": "$GRAPH.generated.readdatafromsapsystem1_outData"
+					}
+				]
+			}
+		},
+		"binaryfileproducer1": {
+			"component": "com.sap.file.write.v2",
+			"metadata": {
+				"label": "Binary File Producer",
+				"x": 365.9999990463257,
+				"y": 12,
+				"height": 80,
+				"width": 120,
+				"generation": 2,
+				"config": {
+					"connection": {
+						"configurationType": "Connection Management",
+						"connectionID": "DI_DATA_LAKE"
+					},
+					"pathMode": "Static (from configuration)",
+					"path": "/shared/SBX/POC/Z_BATCH",
+					"fileMode": "Partitioned file",
+					"mode": "Append"
+				}
+			}
+		},
+		"tabletobinary1": {
+			"component": "com.sap.table.encode",
+			"metadata": {
+				"label": "Table to Binary",
+				"x": 181,
+				"y": 12,
+				"height": 80,
+				"width": 120,
+				"extensible": false,
+				"generation": 2,
+				"ui": "dynpath",
+				"config": {
+					"csv": {
+						"colNames": "",
+						"colSep": ",",
+						"dateFormat": "",
+						"decSep": ".",
+						"escapeChar": "\"",
+						"header": true,
+						"quoteChar": "",
+						"quoting": "QUOTE_ALL",
+						"rowSep": "LF",
+						"dateFormats": []
+					}
+				},
+				"inports": [
+					{
+						"name": "table",
+						"type": "table",
+						"isPropagated": true,
+						"vtype-ID": "$GRAPH.generated.readdatafromsapsystem1_outData"
+					}
+				]
+			}
+		}
+	},
+	"groups": [],
+	"connections": [
+		{
+			"metadata": {
+				"points": "136,52 176,52"
+			},
+			"src": {
+				"port": "outData",
+				"process": "readdatafromsapsystem1"
+			},
+			"tgt": {
+				"port": "table",
+				"process": "tabletobinary1"
+			}
+		},
+		{
+			"metadata": {
+				"points": "305,43 332.99999952316284,43 332.99999952316284,52 360.9999990463257,52"
+			},
+			"src": {
+				"port": "binary",
+				"process": "tabletobinary1"
+			},
+			"tgt": {
+				"port": "file",
+				"process": "binaryfileproducer1"
+			}
+		}
+	],
+	"inports": {},
+	"outports": {},
+	"metadata": {
+		"generation": 2
+	}
+}
