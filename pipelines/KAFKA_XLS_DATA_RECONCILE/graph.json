@@ -1,0 +1,169 @@
+{
+	"properties": {},
+	"description": "Kafka Topic Messages - download",
+	"processes": {
+		"kafkaconsumer1": {
+			"component": "com.sap.kafka.consumer2",
+			"metadata": {
+				"label": "Kafka Consumer",
+				"x": 17,
+				"y": 57,
+				"height": 80,
+				"width": 120,
+				"generation": 1,
+				"config": {
+					"connectionType": "connection management",
+					"connection": {
+						"configurationType": "Configuration Manager",
+						"connectionID": "KAFKA"
+					},
+					"topics": "${TopicName}",
+					"offset": "oldest",
+					"autoCommit": false
+				}
+			}
+		},
+		"python3operator1": {
+			"component": "com.sap.system.python3Operator",
+			"metadata": {
+				"label": "Python3 Operator",
+				"x": 201.99999904632568,
+				"y": 57,
+				"height": 80,
+				"width": 120,
+				"extensible": true,
+				"filesRequired": [
+					"script.py"
+				],
+				"generation": 1,
+				"config": {
+					"script": "import pandas as pd\nimport json\n\nMAX_RECORDS_FILE = 30000\ncounter, lastCount, filecounter, filerecords = 0, 0, 0, 0\nattributes = {}\nlist = []\n\nterminate = False\n\ndef create_csv(newFile):\n    global attributes, list, filecounter\n    filecounter = filecounter if newFile == False else filecounter + 1\n    attributes['filename'] = 'TopicExtract{}.csv'.format(filecounter)\n    df = pd.json_normalize(list)\n    df_csv = df.to_csv(index=False, header = newFile, sep = ',' )\n    api.send(\"outCSV\", api.Message(attributes=attributes, body=df_csv))\n    list = []\n\ndef on_input(data):\n    global counter, filerecords, list, attributes\n    \n    attributes = data.attributes\n    body = data.body\n\n    list.append(json.loads(body))\n    counter += 1\n    filerecords = filerecords + 1 if filerecords < MAX_RECORDS_FILE else 0\n    if filerecords == MAX_RECORDS_FILE:\n        create_csv(True)\n\n\ndef timer():\n    global counter, lastCount, terminate\n    if terminate == True:\n        api.send(\"end\", api.Message(str('Completed')))\n    \n    if counter > 0 and lastCount == counter:\n        create_csv(True)\n        terminate = True\n        \n    lastCount = counter\n    api.logger.info(\"Counter >\" + str(counter) + \" Last count updated >\" + str(lastCount))\n\n    \napi.add_timer(\"2m\",timer)\napi.set_port_callback(\"input\", on_input)"
+				},
+				"additionalinports": [
+					{
+						"name": "input",
+						"type": "message"
+					}
+				],
+				"additionaloutports": [
+					{
+						"name": "outCSV",
+						"type": "message"
+					},
+					{
+						"name": "output",
+						"type": "message"
+					},
+					{
+						"name": "end",
+						"type": "message"
+					}
+				]
+			}
+		},
+		"writefile1": {
+			"component": "com.sap.file.write",
+			"metadata": {
+				"label": "Write File",
+				"x": 567.999997138977,
+				"y": 57,
+				"height": 80,
+				"width": 120,
+				"generation": 1,
+				"config": {
+					"mode": "Append",
+					"pathMode": "Static with placeholders",
+					"connection": {
+						"configurationType": "Connection Management",
+						"connectionID": "DI_DATA_LAKE"
+					},
+					"path": "/shared/POC/Kafka/Extract/${TableName}/<header:filename>"
+				}
+			}
+		},
+		"tofile1": {
+			"component": "com.sap.file.toFile",
+			"metadata": {
+				"label": "To File",
+				"x": 419.49999809265137,
+				"y": 12,
+				"height": 50,
+				"width": 50,
+				"generation": 1,
+				"config": {}
+			}
+		},
+		"graphterminator1": {
+			"component": "com.sap.util.graphTerminator",
+			"metadata": {
+				"label": "Graph Terminator",
+				"x": 386.99999809265137,
+				"y": 102,
+				"height": 80,
+				"width": 120,
+				"generation": 1,
+				"config": {}
+			}
+		}
+	},
+	"groups": [],
+	"connections": [
+		{
+			"metadata": {
+				"points": "141,88 168.99999952316284,88 168.99999952316284,97 196.99999904632568,97"
+			},
+			"src": {
+				"port": "message",
+				"process": "kafkaconsumer1"
+			},
+			"tgt": {
+				"port": "input",
+				"process": "python3operator1"
+			}
+		},
+		{
+			"metadata": {
+				"points": "325.9999990463257,79 353.9999985694885,79 353.9999985694885,46 414.49999809265137,46"
+			},
+			"src": {
+				"port": "outCSV",
+				"process": "python3operator1"
+			},
+			"tgt": {
+				"port": "in",
+				"process": "tofile1"
+			}
+		},
+		{
+			"metadata": {
+				"points": "473.49999809265137,37 534.9999976158142,37 534.9999976158142,97 562.999997138977,97"
+			},
+			"src": {
+				"port": "file",
+				"process": "tofile1"
+			},
+			"tgt": {
+				"port": "file",
+				"process": "writefile1"
+			}
+		},
+		{
+			"metadata": {
+				"points": "325.9999990463257,115 353.9999985694885,115 353.9999985694885,142 381.99999809265137,142"
+			},
+			"src": {
+				"port": "end",
+				"process": "python3operator1"
+			},
+			"tgt": {
+				"port": "stop",
+				"process": "graphterminator1"
+			}
+		}
+	],
+	"inports": {},
+	"outports": {},
+	"metadata": {
+		"generation": 1
+	}
+}
